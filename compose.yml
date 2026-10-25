@@ -1,0 +1,16 @@
+services:
+  n8n:
+    image: n8nio/n8n:2.42.6
+    environment:
+      GENERIC_TIMEZONE: Europe/London
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+      TZ: Europe/London
+    ports:
+      - "127.0.0.1:5678:5678"
+    restart: unless-stopped
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
+    name: personal-assistant-n8n-data
